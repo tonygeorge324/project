@@ -1,0 +1,34 @@
+.head_top{
+    box-shadow: 0 0 10px rgba(0,0,0,.4)!important;
+    height: 60px;
+width: 100%;
+min-height: auto;
+min-width: auto;
+
+}
+.link_cursor{
+    font-family: "Source Sans Pro";
+
+    font-size: 14px;
+    font-weight: 600;
+    color: #28313b;
+    margin-right: 40px;
+    text-decoration: none !important;
+    cursor:pointer;
+}
+.reg_btn{
+    height: 30px;
+width: 140px;
+border: 1px solid  #FF0000;
+margin: 0 90px 0 0;
+padding: 0 8px 0 8px;
+min-height: auto;
+min-width: auto;
+background-color:  #FF0000;
+background-position: 0% 0%;
+color:  #FFFFFF;
+
+}
+.navbar-header{
+    cursor: pointer;
+}

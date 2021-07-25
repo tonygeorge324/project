@@ -1,0 +1,70 @@
+.name-type {
+    width: 559px;
+    height: 48px;
+  }
+  .label-display{
+font-size: 18px;
+font-weight: 300;
+  }
+  .container {
+    display: flex;
+    justify-content: center;
+  }
+  .cont{
+    padding: 25px;
+    margin: 0px;
+   
+    text-align: center;
+  }
+  .btn{
+   
+    font-size: 16px;
+    line-height: 24px;
+    text-decoration: none solid rgb(255, 255, 255);
+    word-spacing: 0px;
+    cursor: pointer;
+    height: 44.6307px;
+    width: 122.395px;
+    margin: 10px 10px 0 0;
+    padding: 13px 21px 13px 21px;
+    min-height: auto;
+    min-width: auto;
+    background-color: transparent;
+    outline: solid;
+    color: black;
+  }
+  .btn1{
+    font-size: 14px;
+    line-height: 17px;
+    text-decoration: none solid rgb(255, 255, 255);
+    word-spacing: 0px;
+    cursor: pointer;
+    height: 42px;
+    width: 100px;
+    margin: 10px 10px 0 0;
+    padding: 12px 20px 13px 21px;
+    min-height: auto;
+    min-width: auto;
+    background-color: transparent;
+    outline: solid;
+    color: black;
+  }
+  .btn:hover{
+     color: red;
+  }
+  .label{
+    color: red;
+  }
+  .table{
+      float: right;
+  }
+  .action-btn{
+    cursor: pointer;
+  }
+  .form-btn{
+    padding: 20px 200px;
+
+  }
+  .form-btn1{
+    padding: 0px 270px;
+  }

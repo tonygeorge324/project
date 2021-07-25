@@ -1,0 +1,22 @@
+<section class="head_top">
+    <div class="container-fluid">
+      <nav class="navbar">
+        <div class="navbar-header">
+          <img src="assets/images/logo.png" width="22%" />
+         
+        </div>
+        <div class="nav-profile">
+ <h3>Hello :-  {{userDetails.fullName.split(' ')[0]}}</h3>&nbsp;&nbsp;
+  <button [routerLink]="['/register']" class="reg_btn"> Sign Up</button>
+  <input class="reg_btn" type="button" (click)="onLogout()" value="Logout" />
+        </div>
+      </nav>
+    </div>
+  </section>
+  
+
+
+
+
+
+<app-customer></app-customer>

@@ -1,0 +1,75 @@
+<app-navbar></app-navbar>
+
+<div class="cont">
+  <h1>
+
+    Register
+  </h1>
+  <div class="header-text">
+    Namaste 🙏, Create your Invoice Account
+  </div>
+</div>
+<section class="m-0">
+  <div class="container">
+
+    <div class="row1"><!-- local referrence registerForm = ngForm element(form values and validation status and to pass entire form to our class on form submit.)  -->
+      <form #registerForm="ngForm" (ngSubmit)="registerForm.valid &&
+        onSubmit(registerForm)"><!-- add submit event (ngSubmit) onsubmit function -registerForm before execution submit registerform should be valid that is why we use && -->
+        <div class="form-group"><!--local reference fullname = ngModel property binding bannana in box two way binding userService injected in ts file with selecteduser property type model-->
+          <input class="name-type" type="text" #fullName="ngModel"
+            [(ngModel)]="userService.selectedUser.fullName" name="fullName"
+            placeholder="Full Name"
+            required [ngClass]="{'invalid-textbox' :registerForm.submitted &&
+            !fullName.valid }"><br><br><!-- required is essential for there is no value in box show red border ngclass -->
+          <div *ngIf="registerForm.submitted && !fullName.valid"><!--boolean expression is ngif field required -->
+            <label class="validation-message">This field is required.</label>
+          </div><!--declare forms module inside app module.ts-->
+        </div>
+        <div class="form-group">
+          <input class="name-type" type="text" #email="ngModel"
+            [(ngModel)]="userService.selectedUser.email" name="email"
+            placeholder="Email"
+            required [pattern]="emailRegex" [ngClass]="{'invalid-textbox'
+            :registerForm.submitted && !email.valid }"><br><br><!--pattern directory for email regular expression -->
+          <div *ngIf="registerForm.submitted && email.errors">
+            <label *ngIf="email.errors.required" class="validation-message">This
+              field is required.</label>
+            <label *ngIf="email.errors.pattern" class="validation-message">Invalid
+              email address.</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <input class="name-type" type="password" #password="ngModel"
+            [(ngModel)]="userService.selectedUser.password" name="password"
+            placeholder="Password"
+            minlength="4" required [ngClass]="{'invalid-textbox'
+            :registerForm.submitted && !password.valid }"><br><br><!--min length 4 characters -->
+          <div *ngIf="registerForm.submitted && password.errors">
+            <label *ngIf="password.errors.required" class="validation-message">This
+              field is required.</label>
+            <label *ngIf="password.errors.minlength" class="validation-message">Enter
+              atleast 4 characters.</label>
+          </div>
+        </div>
+        <div class="container"><br>
+          <input  [routerLink]="['/login']" class="btn1" type="submit" value="Login">&nbsp;
+          <input class="btn" type="submit" value="Register">&nbsp;
+        </div>
+
+
+      </form>
+    </div>
+  </div>
+</section>
+
+<div class="container"><!--Success arrow fn -->
+  <div class="success" *ngIf="showSucessMessage"><!--boolean expression *ngif -->
+    Saved Successfully
+  </div>
+  <div class="alert" *ngIf="serverErrorMessage">
+    {{serverErrorMessage}}
+
+  </div>
+</div>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,40 @@
+<app-navbar></app-navbar>
+<div class="cont">
+<h1>
+
+  Log In
+</h1>
+</div>
+
+
+
+
+<section class="m-4">
+<div class="container">
+  <div class="row1">
+<form #loginForm="ngForm" (ngSubmit)="loginForm.valid && onSubmit(loginForm)">
+  <div class="form-group">
+    <input class="name-type" type="text" name="email" #email="ngModel" [(ngModel)]="model.email" placeholder="Email" [pattern]="emailRegex" required
+      [ngClass]="{'invalid-textbox' :loginForm.submitted && !email.valid }"><br><br>
+    <div *ngIf="loginForm.submitted && email.errors?.pattern">
+      <label class="validation-message">Invalid email address.</label>
+    </div>
+  </div>
+  <div class="form-group">
+    <input  class="name-type" type="password" name="password" #password="ngModel" [(ngModel)]="model.password" placeholder="Password" required minlength="4"
+      [ngClass]="{'invalid-textbox' :loginForm.submitted && !password.valid }"><br><br>
+    <div *ngIf="loginForm.submitted && password.errors?.minlength">
+      <label class="validation-message">Minimum 4 characters.</label>
+    </div>
+  </div>
+  <div class="container"><br>
+    <input class="btn" type="submit" value="Log In">
+    </div>
+  </form>
+  <!-- Error message -->
+<div class="alert" *ngIf="serverErrorMessages">
+    {{serverErrorMessages}}
+  </div>
+  </div>
+</div>
+</section>

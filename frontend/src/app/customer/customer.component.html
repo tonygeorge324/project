@@ -1,0 +1,82 @@
+  
+<div class="cont">
+  <h1>
+  
+   Invoice Details
+  </h1>
+  </div>
+
+  <section class="m-4">
+    <div class="container">
+      <div class="row1">
+                <form #customerForm="ngForm" (ngSubmit)="onSubmit(customerForm)">
+                  <div class="form-group">
+                    <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="customerService.selectedCustomer._id">
+                  </div>
+                  <div class="form-group">
+                    <label class="label-display">Name :
+                      <label class="red-text">*</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input class="name-type" type="text" name="name" #name="ngModel" [(ngModel)]="customerService.selectedCustomer.name" placeholder="Enter full name" required>
+                       
+                        </label>
+                      </div><br>
+                    
+                      <div class="form-group">
+                        <label class= "label-display">Invoice :</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input class="name-type" type="text" name="invoice" #name="ngModel" [(ngModel)]="customerService.selectedCustomer.invoice" placeholder="Invoice Details">&nbsp;&nbsp;&nbsp;
+                        
+                      </div><br>
+                      <div class="form-group">
+                        <label class="label-display" >Reference :</label>&nbsp;
+                        <input class="name-type" type="text" name="reference" #name="ngModel" [(ngModel)]="customerService.selectedCustomer.reference" placeholder="Enter Reference">&nbsp;&nbsp;&nbsp;
+                      
+                   
+                    </div><br>
+                    <div class="form-group">
+                      <label class="label-display" >Amount :</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input class="name-type" type="text" name="amount" #name="ngModel" [(ngModel)]="customerService.selectedCustomer.amount" placeholder="Amount">&nbsp;&nbsp;&nbsp;
+                   
+                    
+                    </div><br>
+                    <div class="form-btn">
+                        <button class="btn btn-custom right" type="button" (click)="resetForm(customerForm)">Reset</button>
+                        <button class="btn btn-custom right" type="submit" [disabled]="!customerForm.valid">Submit</button>
+                      
+                    </div>
+                    <div class="form-btn1">
+                      <button (click)="openDialog()" class="btn1" >View/Edit</button>
+                    </div>
+                  </form>
+                  <div>
+                    <div class="container-fluid">
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th>Name</th><br><br>
+                            <th>Invoice</th>
+                            <th>Reference</th>
+                            <th></th>
+                          </tr>
+                        </thead>
+                        <tr *ngFor="let emp of customerService.customers">
+                          <td>{{emp.name}}</td>
+                          <td>{{emp.invoice}}</td>
+                          <td>{{emp.reference}}</td>
+                          <td>
+                              <a class="action-btn" (click)="onEdit(emp)">
+                                <i class="material-icons">edit</i>
+                              </a>
+                              <a class="action-btn" (click)="onDelete(emp._id,customerForm)">
+                                <i class="material-icons">delete</i>
+                              </a>
+                            </td>
+                        </tr>
+                      </table>
+                    </div>
+                </div>
+              
+            
+          </div>
+        </div>
+      
+      

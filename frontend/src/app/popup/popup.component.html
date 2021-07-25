@@ -1,0 +1,25 @@
+<div class="container-fluid">
+  <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th><br><br>
+          <th>Invoice</th>
+          <th>Reference</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tr *ngFor="let emp of customerService.customers">
+        <td>{{emp.name}}</td>
+        <td>{{emp.invoice}}</td>
+        <td>{{emp.reference}}</td>
+        <td>
+            <a class="action-btn" (click)="onEdit(emp)">
+              <i class="material-icons">edit</i>
+            </a>
+            <a class="action-btn" (click)="onDelete(emp._id,customerForm)">
+              <i class="material-icons">delete</i>
+            </a>
+          </td>
+      </tr>
+    </table>
+  </div>
